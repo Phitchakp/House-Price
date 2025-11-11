@@ -22,24 +22,7 @@ print(df.info())
 X = df.drop("House_Price", axis=1)
 y = df["House_Price"]
 
-# # Identify categorical columns
-# categorical_features = X.select_dtypes(include=["object"]).columns.tolist()
-# numeric_features = X.select_dtypes(include=["int64", "float64"]).columns.tolist()
 
-# # Convert numeric columns stored as objects to int
-# for col in categorical_features:
-#     if X[col].dtype == 'object' and all(x.isdigit() for x in X[col]):
-#         X[col] = X[col].astype(int)
-#         numeric_features.append(col)
-# categorical_features = [col for col in categorical_features if col not in numeric_features]
-
-# # Preprocessing pipeline
-# preprocessor = ColumnTransformer(
-#     transformers=[
-#         ("cat", OneHotEncoder(drop='first'), categorical_features)
-#     ],
-#     remainder='passthrough'
-# )
 
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
